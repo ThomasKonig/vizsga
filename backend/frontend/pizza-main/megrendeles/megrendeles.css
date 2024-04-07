@@ -1,0 +1,28 @@
+#megrendeles{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: xx-large;
+    
+    
+    
+}
+input {
+    font-size: xx-large;
+   border-radius: 5%;
+}
+table{
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+}
+body {
+    background-image: url(regrendeles_kep.jpg) ;
+    background-size:100% auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+.tablazat{
+    font-weight: bold;
+    font-family: serif
+}

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/style.css" type="text/css">
+    <link rel="stylesheet" href="megrendeles/megrendeles.css" type="text/css">
+    <link rel="stylesheet" href="megrendeles/megrendeles.html" type="text/css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <title>Király Pizza</title>
+</head>
+
+<body>
+
+
+
+    <header>
+        <div class="top">
+            <div class="logo">Király Pizza</div>
+            <div class="nav">
+                <a href="#Fooldal">Főoldal</a>
+                <a href="#etlap">Étlap</a>
+                <a href="#rolunk">Rólunk</a>
+                <a href="#kapcsolat">Kapcsolat</a>
+                <span>Felhasználó név <input type="text" name="" id=""></span>
+                <span>Jelszó <input type="text" name="" id=""></span>
+                <span><Button>Belépés</Button></span>
+                <a rel="stylesheet" href="regisztracio.html" target=”_blank”>Regisztráció </a>
+                <i class='bx bx-shopping-bag' id="kosar"></i>
+            </div>
+            <div class="kosarr">
+                <h2 class="kosar-cim">Kosarad</h2>
+                <div class="kosar-tartalom">
+                    <!-- <div class="kosar-box">
+                        
+                         <img src="food1.png" alt="" class="kosar-kep">
+                        <div class="kosar-reszletek">
+                            <div class="kosar-termek-cim"></div>
+                            <div class="kosar-ar"></div>
+                            <input type="number" value="1" class="kosar-mennyiseg">
+                        </div> 
+                       <i class='bx bxs-trash-alt cart-remove'></i>
+                    </div> -->
+
+                </div>
+                <div class="total">
+                    <div class="total-cime">Fizetendő</div>
+                    <div class="fizetendo"><span id="totalAmount">0</span> Ft</div>
+
+                </div>
+                <button type="button" class="btn-buy">Fizetés</button>
+                <i class='bx bx-x' id="zaro"></i>
+            </div>
+    </header>
+    <br>
+
+
+
+    <div class="div1" id="Fooldal">
+        <div class="jobbra" id="étel">
+            <img id="plateImage" class="plate-image" src="food1.png" alt="Étel képe">
+        </div>
+        <div class="balra">
+            <p>Éhes vagy?</p>
+            <h1>Ne várj</h1>
+            <p>Rendelj tőlünk</p>
+            <p>Telefonszámunk: 0670/1234567</p>
+            <p>NY: H-Sz 9:00- 22:00</p>
+        </div>
+    </div>
+
+    <br>
+    <!--étlap rész kezdete-->
+    <div>
+        <h2 id="etlap" style="text-align: center;">Étlap</h2>
+
+        <section id="menu" class="menu">
+
+
+            <div class="box-container">
+
+
+                <div class="box">
+                    <div class="ar">2500 Ft</div>
+                    <img src="food1.png" alt="" class="termekKep">
+                    <div class="termekNev">Sajtos-gombás pizza</div>
+                    <input type="number" min="1" max="100" value="1" class="qty" name="qty">
+                    <button class="add-cart-btn" data-name="Sajtos-gombás pizza" data-price="2500">Kosárba</button>
+                </div>
+
+                <div class="box">
+                    <div class="ar">2000 Ft</div>
+                    <img src="food2.png" alt="" class="termekKep">
+                    <div class="termekNev">Gombás pizza</div>
+                    <input type="number" min="1" max="100" value="1" class="qty" name="qty">
+                    <button class="add-cart-btn" data-name="Gombás pizza" data-price="2000">Kosárba</button>
+                </div>
+
+
+                <div class="box">
+                    <div class="ar">1000 Ft</div>
+                    <img src="food3.png" alt="" class="termekKep">
+                    <div class="termekNev">Akciós pizza</div>
+                    <input type="number" min="1" max="100" value="1" class="qty" name="qty">
+                    <button class="add-cart-btn" data-name="Akciós pizza" data-price="1000">Kosárba</button>
+                </div>
+
+                <div class="box">
+                    <div class="ar">2400 Ft</div>
+                    <img src="food4.png" alt="" class="termekKep">
+                    <div class="termekNev">4dik pizza</div>
+                    <input type="number" min="1" max="100" value="1" class="qty" name="qty">
+                    <button class="add-cart-btn" data-name="4dik pizza" data-price="2400">Kosárba</button>
+                </div>
+
+                <div class="box">
+                    <div class="ar">3200 Ft</div>
+                    <img src="food5.png" alt="" class="termekKep">
+                    <div class="termekNev">5dik pizza</div>
+                    <input type="number" min="1" max="100" value="1" class="qty" name="qty">
+                    <button class="add-cart-btn" data-name="5dik pizza" data-price="3200">Kosárba</button>
+                </div>
+
+                <div class="box">
+                    <div class="ar">2700 Ft</div>
+                    <img src="food6.png" alt="" class="termekKep">
+                    <div class="termekNev">Egyszerű pizza</div>
+                    <input type="number" min="1" max="100" value="1" class="qty" name="qty">
+                    <button class="add-cart-btn" data-name="Egyszerű pizza" data-price="2700">Kosárba</button>
+                </div>
+
+                <div class="box">
+                    <div class="ar">2200 Ft</div>
+                    <img src="food7.png" alt="" class="termekKep">
+                    <div class="termekNev">VMi2 pizza</div>
+                    <input type="number" min="1" max="100" value="1" class="qty" name="qty">
+                    <button class="add-cart-btn" data-name="VMi2 pizza" data-price="2200">Kosárba</button>
+                </div>
+
+                <div class="box">
+                    <div class="ar">1500 Ft</div>
+                    <img src="food8.png" alt="" class="termekKep">
+                    <div class="termekNev">Olcsó pizza</div>
+                    <input type="number" min="1" max="100" value="1" class="qty" name="qty">
+                    <button class="add-cart-btn" data-name="Olcsó pizza" data-price="1500">Kosárba</button>
+                </div>
+
+                <div class="box">
+                    <div class="ar">1800 Ft</div>
+                    <img src="food9.png" alt="" class="termekKep">
+                    <div class="termekNev">vmilyen pizza</div>
+                    <input type="number" min="1" max="100" value="1" class="qty" name="qty">
+                    <button class="add-cart-btn" data-name="vmilyen pizza" data-price="1800">Kosárba</button>
+                </div>
+
+
+
+                <!--
+
+                <div class="box">
+                    <div class="ar">2500 Ft</div>
+                    <img src="food2.png" alt="" class="termekKep">
+                    <div class="termekNev"></div>
+                    <form action="" method="post">
+                        <input type="number" min="1" max="100" value="1" class="qty" name="qty">
+                        <input type="submit" value="kosárba" name="add_to_cart" class="btn">
+                    </form>
+                </div>-->
+            </div>
+
+
+            <!-- étlap rész vége -->
+            <div>
+
+                <h2 style="text-align: center;" id="rolunk">
+                    Rólunk
+                </h2>
+            </div>
+            <div class="container">
+                <div class="balra2">
+                    <img src="image1.jpg" alt="Pizza" class="kepecske"
+                        title="https://unsplash.com/photos/pepperoni-pizza-OklpRh8-Sns">
+                </div>
+                <div class="jobbra2">
+                    <p class="text">
+                        Üdvözöljük a Király Pizza világában! Ha vágyik egy kulináris utazásra az olasz ízek
+                        birodalmába,
+                        akkor
+                        jó helyen jár! A Király Pizza olyan hely, ahol az ízek találkoznak a kényelemmel, és ahol a
+                        vendégszeretet mindig otthonosan cseng. Engedje meg, hogy elcsábítsuk önt az aromás, frissen
+                        sült
+                        pizzák, a ropogós tészták és a gazdag ízek világába. Különleges ételeinkkel és barátságos
+                        kiszolgálásunkkal minden alkalommal egy emlékezetes gasztronómiai élményben lesz része.
+                        Üdvözöljük a Király Pizza-ban, ahol minden szelet egy újabb kalandra hív!
+                    </p>
+                </div>
+            </div>
+
+
+            <section class="footer">
+                <h2 style="text-align: center;" id="kapcsolat">
+                    Kapcsolat
+                </h2>
+
+                <div class="box-container">
+
+                    <div class="box">
+                        <i
+                            class="fa-mobile-screen"></i><!--font awseome icon, https://fontawesome.com/icons/mobile-screen?f=classic&s=solid-->
+                        <i class="fas fa-phone"></i>
+                        <h3>Telefon</h3>
+                        <p>0670/1234567</p>
+                    </div>
+
+                    <div class="box">
+                        <i class="fa-sharp fa-solid fa-location-dot"></i>
+                        <h3>Címünk</h3>
+                        <p>4025 Debrecen, Széchenyi u. 58.</p>
+                    </div>
+                    <!---->
+                    <div class="box">
+                        <i class="fas fa-clock"></i>
+                        <h3>Nyitvatartás</h3>
+                        <p>H-Sz 9:00- 22:00</p>
+                    </div>
+
+                    <div class="box">
+                        <i class="fa-regular fa-envelope"></i>
+                        <h3>E-mail cím</h3>
+                        <p>kiralypizza@kiralypizza.hu</p>
+                    </div>
+
+                </div>
+            </section>
+
+            <script src="javascript.js"></script>
+
+
+</body>
+
+</html>

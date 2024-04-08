@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Megrendelés</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Megrendelés</h1>
+        <form>
+            <div class="form-group">
+                <label for="vezeteknev">Vezetéknév:</label>
+                <input type="text" id="vezeteknev" name="vezeteknev" required>
+            </div>
+            <div class="form-group">
+                <label for="keresztnev">Keresztnév:</label>
+                <input type="text" id="keresztnev" name="keresztnev" required>
+            </div>
+            <div class="form-group">
+                <label for="lakcim">Lakcím:</label>
+                <input type="text" id="lakcim" name="lakcim" required>
+            </div>
+            <div class="form-group">
+                <label for="telefonszam">Telefonszám:</label>
+                <input type="tel" id="telefonszam" name="telefonszam" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email cím:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <button type="submit">Megrendelés elküldése</button>
+        </form>
+        <a href="#" class="back-to-home">Vissza a Főoldalra</a>
+    </div>
+</body>
+</html>

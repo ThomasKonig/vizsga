@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
-
+from expense_tracker.models import ProfileDatas
+from expense_tracker.models import Megrendeles1
 
 def home(request):
     if request.method=='POST':
@@ -16,19 +17,43 @@ def home(request):
         return render( request,'main.html', {'error_message': 'Hibás Felhasználónév vagy jelszó!'})
         
 
-    return  (render(render, 'main.html'))
+    return  render(request, 'main.html')
 
 def kijelentkezes(request):
     logout(request)
     return redirect('home')
 
 def megrendeles(request):
-    return  (render(render, 'megrend.html'))
+    if request.method=='POST':
+        vezeteknev = request.POST['vezeteknev']
+        keresztnev = request.POST['keresztnev']
+        lakcim = request.POST['lakcim']
+        telefonszam = request.POST['telefonszam']
+        email = request.POST['email']
+        if len(email)< 4:
+            return render(request, 'megrend.html', {'error_message': 'Túl rövid a email cím!'})
+        else:
+            user = User.objects.create_user( email=email)
+            user.save()
+
+
+            profile = Megrendeles1(user = user, phone_number = telefonszam, lakcim=lakcim, keresztnev=keresztnev, vezeteknev=vezeteknev)
+            profile.save()
+
+    return  (render(request, 'megrendeles/megrend.html'))
+    
+
 def regiszracio(request):
     if request.method=='POST':
         username = request.POST['username']
         password = request.POST['password']
-        password2 = request.POST['password2']
+        password2 = request.POST['password2'] 
+        #edigg jó 
+        vezeteknev = request.POST['vezeteknev']
+        keresztnev = request.POST['keresztnev']
+        lakcim = request.POST['lakcim']
+        telefonszam = request.POST['telefonszam']
+        email = request.POST['email']
 
         if len(username)< 4:
             return render(request, 'regiszracio.html', {'error_message': 'Túl rövid Felhasználónév!'})
@@ -39,8 +64,12 @@ def regiszracio(request):
         if User.objects.filter(username = username).exists():
             return render(request, 'regiszracio.html', {'error_message': 'Van már ilyen felhasználó!'})
         else:
-            user = User.objects.create_user(username=username, password=password)
+            user = User.objects.create_user(username=username, password=password, email=email)
             user.save()
+
+            profile = ProfileDatas(user = user, phone_number = telefonszam, lakcim=lakcim, keresztnev=keresztnev, vezeteknev=vezeteknev)
+            profile.save()
+
             return redirect('home')
 
-    return  (render(render, 'regiszracio.html'))
+    return  (render(request, 'Regisztracio/regiszracio.html'))

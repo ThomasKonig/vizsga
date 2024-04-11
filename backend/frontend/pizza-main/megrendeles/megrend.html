@@ -4,13 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Megrendelés</title>
-    <link rel="stylesheet" href="styles.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'stylesRendel.css' %}">
+    
 </head>
 <body>
     <div class="container">
         <h1>Megrendelés</h1>
-        <form>
+        
+        <form action="{% url 'megrendeles' %}" method="post" >
+            {% csrf_token %}
             <div class="form-group">
+                
                 <label for="vezeteknev">Vezetéknév:</label>
                 <input type="text" id="vezeteknev" name="vezeteknev" required>
             </div>
@@ -31,8 +36,9 @@
                 <input type="email" id="email" name="email" required>
             </div>
             <button type="submit">Megrendelés elküldése</button>
+            {% csrf_token %}
         </form>
-        <a href="#" class="back-to-home">Vissza a Főoldalra</a>
+        <a href="{% url 'home' %}" class="back-to-home">Vissza a Főoldalra</a>
     </div>
 </body>
 </html>

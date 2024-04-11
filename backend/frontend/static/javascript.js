@@ -1,11 +1,11 @@
 let currentIndex = 0;
 const foodImages = [
-    'food1.png',
-    'food2.png',
-    'food3.png',
-    'food4.png',
-    'food5.png',
-    'food6.png'
+    'static/food1.png',
+    'static/food2.png',
+    'static/food3.png',
+    'static/food4.png',
+    'static/food5.png',
+    'static/food6.png'
 ];
 
 function changePlateImage() {
@@ -27,8 +27,8 @@ let zaroKosarka = document.querySelector('#zaro');
 
 //nyitja a kosarat
 kosarka.onclick = () => {
-    //kosarkam.classList.add("active");
-    console.log("hello");
+    kosarkam.classList.add("active");
+   
 };
 //zárja a kosarat
 zaroKosarka.onclick = () => {
@@ -123,6 +123,14 @@ document.addEventListener("DOMContentLoaded", function () {
     
 });*/
 
+
+
+
+
+
+
+
+
 // Új függvény az összeg frissítésére
 function updateTotal() {
     var total = 0;
@@ -147,13 +155,15 @@ document.addEventListener("DOMContentLoaded", function () {
             event.preventDefault();
             var productName = button.getAttribute('data-name');
             var productPrice = parseInt(button.getAttribute('data-price'));
+            var productImage = button.getAttribute('data-image');
+
             var productQty = parseInt(button.previousElementSibling.value);
             var existingItem = document.querySelector('.kosar-box[data-name="' + productName + '"]');
             if (existingItem) {
                 var currentQty = parseInt(existingItem.querySelector('.kosar-mennyiseg').value);
                 existingItem.querySelector('.kosar-mennyiseg').value = currentQty + productQty;
             } else {
-                addToCart(productName, productPrice, productQty);
+                addToCart(productName, productPrice, productQty, productImage);
             }
             updateTotal(); // Összeg frissítése az új elem hozzáadása után
         });
@@ -175,13 +185,14 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    function addToCart(name, price, quantity) {
+    function addToCart(name, price, quantity, image) {
         var cartContent = document.querySelector('.kosar-tartalom');
         var newItem = document.createElement('div');
         newItem.classList.add('kosar-box');
         newItem.dataset.name = name;
+        console.log("Retkes kép", image);
         newItem.innerHTML = `
-            <img src="food1.png" alt="" class="kosar-kep">
+            <img src="static/${image}" alt="" class="kosar-kep">
             <div class="kosar-reszletek">
                 <div class="kosar-termek-cim">${name}</div>
                 <div class="kosar-ar">${price * quantity}</div>

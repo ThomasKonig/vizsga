@@ -1,15 +1,9 @@
-#bntbelep{
-  cursor: pointer;
-  color: blanchedalmond;
-}
-
 html{
   overflow-x: hidden;/*vízszintes görgetősáv ne jelenjen meg*/
+  
 }
 
 body{
-    /*background-color: rgb(224, 220, 228);*/
-    overflow-x: hidden;/*a overflow-x: hidden; tulajdonság miatt a vízszintes görgetősáv nem jelenik meg. A szöveg vízszintesen elvágódik a div szélességének megfelelően.*/
     margin-left: 0;
     margin-right: 0;
     background-size: cover;/*A háttérképet úgy méretezi, hogy kitöltse az egész elemet, miközben megőrzi az eredeti arányait. Ez azt jelenti, hogy a háttérkép vagy teljes szélességében vagy teljes magasságában kitölti az elemet, attól függően, hogy melyik irányban nagyobb az aránya.*/
@@ -24,26 +18,38 @@ header {
     left: 0;
     width: 100%;
     z-index: 10;/*z-index CSS tulajdonság határozza meg, hogy egy elem melyik rétegben jelenik meg a többi elemhez képest.*/
-    height: 42px;
+    height: 60px;
     background-color: rgb(236, 239, 234);
   }
- #top.nav#fel{
-  color:blueviolet;
 
- }
-.nav.fel{
-  color:blueviolet; /*nem mükszik*/
+ #bntbelep{
+  cursor: pointer;
+  color: blueviolet;
+  font-size: 18px;
+  
+}
+.nav a {
+  margin-right: 200px; /* A linkek közötti távolság */
+  text-align: center;
+}
+.nav #kosar {
+  margin-left: 20px; /* A kosár ikon és az utolsó link közötti távolság */
+}
+
+.fel{
+  color:blueviolet; 
+  font-size: 18px;
 }
 
 .logo{
-    text-align: left;
+    text-align: center;
     font-size: 20px;
     color: rgb(4, 112, 39);
     margin: auto;
 }
 .nav{
     text-align: center;
-    word-spacing: 1px; /* Modosítás*/
+    word-spacing: 20px; /* Modosítás*/
     left: -100px;
     height: 160px;
     margin: -10px;
@@ -83,6 +89,8 @@ a:hover{/*az a elem felé visszük az egeret, akkor fehér színű legyen, húzz
 }
 .kosarr.active{
   right: 0;
+  overflow:auto;
+  height: 100%;
 }
 .kosar-cim{
   text-align: center;
@@ -164,11 +172,17 @@ width: 20px;
 .balra {
   text-align: center; /* Szöveg középre igazítása */
   margin-bottom: 32px;
+  margin-top: 30px;
   font-size: 32px;
   color: black;
   text-transform: uppercase;
 }
-
+.regisztraciosResz{
+  position: absolute;
+  left: 10px;
+  top: 80px;
+  
+}
 .jobbra {
   text-align: right;
   max-width: 30%; /* A tányér maximális szélessége 100% */
@@ -316,12 +330,14 @@ width: 20px;
 
 /*kapcsolat rész formázás kezdete*/
 
+
 .footer .box-container {
   padding: 10px;
   height: 300px;
   display: flex; /* A flexbox elrendezési modellt alkalmazzuk */
   flex-wrap: nowrap; /* Az elemek ne csomagolódjanak át a következő sorba */
   gap: 24px; /* A távolság az elemek között */
+  align-items: stretch; /* Az elemek nyúlnak a tartalomhoz */
 }
 
 .footer .box {
@@ -363,3 +379,94 @@ width: 20px;
 /*kapcsolat rész formázás vége*/
 
 
+
+
+
+/* Általános formázás */
+@media screen and (max-width: 768px) {
+  /* A header elemre vonatkozó formázás */
+  header {
+    height:auto; /* Állítsuk az header magasságát automatikusra, hogy a tartalomra igazodjon */
+    margin-bottom: 100px;
+    
+  }
+
+    .kosarr {
+    width: 100%; /* A kosár szélességét teljes képernyő szélességűre állítjuk */
+  }
+
+  .box-container {
+    flex-direction: column; /* A dobozok elrendezését oszlop formára váltjuk */
+    height: auto; /* A dobozok magasságát automatikusra állítjuk, hogy a tartalomra igazodjanak */
+  }
+
+  .box {
+    width: 90%; /* A dobozok szélességét teljes képernyő szélességűre állítjuk */
+    margin-bottom: 24px; /* A dobozok közötti távolságot növeljük */
+    margin-left: 40px;
+  }
+
+  .box-container .box p {
+    font-size: 18px; /* A dobozokban lévő szöveg méretét csökkentjük */
+  }
+
+  .balra{
+    margin-top: 80px;
+  }
+  .nav{
+    margin-bottom: 40px;
+    width: auto;
+  }
+  .regisztraciosResz{
+    margin-top: 60px;
+    margin-bottom: 100px;
+    
+  }
+  #regisztracio{
+    margin-right: 100px;
+  }
+  
+  /* Rólunk rész formázásának reszponzív változásai */
+  .balra2, .jobbra2 {
+    width: 100%; /* A balra2 és jobbra2 oszlopok szélességét teljes képernyő szélességűre állítjuk */
+    padding: 0; /* A paddinget eltávolítjuk, hogy az oszlopok a teljes szélességet kihasználják */
+  }
+
+  .kepecske {
+    width: 100%; /* A kép szélességét teljes képernyő szélességűre állítjuk */
+    height: auto; /* A kép magasságát automatikusra állítjuk, hogy az arányok megmaradjanak */
+  }
+
+  .text {
+    font-size: 16px; /* A szöveg méretét csökkentjük */
+    line-height: 1.6; /* A sortávolságot növeljük */
+    padding: 10px; /* Paddinget adunk a szöveg köré, hogy ne legyen túl közel a szélekhez */
+  }
+
+  /* Kapcsolat rész formázásának reszponzív változásai */
+  .footer .box-container {
+    height: auto; /* A dobozok magasságát automatikusra állítjuk, hogy a tartalomra igazodjanak */
+    flex-direction: column; /* A dobozok elrendezését oszlop formára váltjuk */
+    align-items: center; /* Az elemeket középre igazítjuk a függőleges tengely mentén */
+  }
+
+  .footer .box {
+    width: 80%; /* A dobozok szélességét kisebbre állítjuk, hogy ne legyenek teljes szélességűek */
+    margin-bottom: 24px; /* A dobozok közötti távolságot növeljük */
+  }
+
+  .footer .box i {
+    font-size: 24px; /* A dobozokban lévő ikonok méretét csökkentjük */
+    margin-bottom: 12px; /* Az ikonok alatti távolságot növeljük */
+  }
+
+  .footer .box h3 {
+    font-size: 24px; /* A címek méretét csökkentjük */
+    margin: 12px 0; /* A címek körüli margót módosítjuk */
+  }
+
+  .footer .box p {
+    font-size: 18px; /* A szöveg méretét csökkentjük */
+    margin-bottom: 8px; /* Az alatti margót növeljük */
+  }
+}

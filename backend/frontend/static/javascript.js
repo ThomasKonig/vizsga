@@ -206,3 +206,76 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 console.log("hello");
+
+
+//Kosár 
+
+
+
+function getCookie(name) {
+    const cookieValue = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
+    return cookieValue ? cookieValue.pop() : '';
+}
+
+const token = document.getElementById("csrf_token")
+console.log(token.value)
+
+let cartItems = []
+
+const sendOrderBtn = document.getElementById("sendOrder")
+
+sendOrderBtn.addEventListener("click", () => {
+    if (cartItems.length == 0) {
+        alert("Nincs semmi a kosaradban!")
+        return
+    }
+
+    console.log(JSON.stringify({ message: "cartItems" }));
+
+    let token = getCookie('csrftoken')
+    let options = {
+        method: "POST",
+        // mode: "no-cors",
+        // credentials: "same-origin",
+        headers: {
+            "X-CSRFToken": token,
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ message: cartItems })
+    }
+
+    fetch('sendOrder/', options)
+        .then(res => { console.log(res) })
+})
+
+function addToCart(item, id) { //name, price, quantity, image
+    console.log(item, id);
+    let amountAdded = false
+    cartItems.forEach(itemTemp => {
+        if (itemTemp.id == id) {
+            itemTemp.amount = itemTemp.amount + 1
+            console.log(cartItems);
+            amountAdded = true
+        }
+    })
+    if (!amountAdded) {
+        cartItems.push({
+            'id': id,
+            'name': item,
+            'amount': 1
+        })
+    }
+    refreshKosar()
+}
+
+function refreshKosar() {
+    let kosar = document.getElementById('kosar')
+    kosar.innerHTML = ""
+
+    cartItems.forEach(item => {
+        let itemEl = document.createElement('div')
+        itemEl.innerText = `${item.name} - ${item.amount}`
+        kosar.appendChild(itemEl)
+    })
+}
+

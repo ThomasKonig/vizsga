@@ -33,11 +33,11 @@ def megrendeles(request):
         if len(email)< 4:
             return render(request, 'megrend.html', {'error_message': 'Túl rövid a email cím!'})
         else:
-            user = User.objects.create_user( email=email)
-            user.save()
+            #user = User.objects.create_user( email=email)
+            #user.save()
 
 
-            profile = Megrendeles1(user = user, phone_number = telefonszam, lakcim=lakcim, keresztnev=keresztnev, vezeteknev=vezeteknev)
+            profile = Megrendeles1(email = email, phone_number = telefonszam, lakcim=lakcim, keresztnev=keresztnev, vezeteknev=vezeteknev)
             profile.save()
 
     return  (render(request, 'megrendeles/megrend.html'))

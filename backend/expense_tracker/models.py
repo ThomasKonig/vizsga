@@ -20,10 +20,11 @@ class ProfileDatas(models.Model):
     vezeteknev=models.CharField(max_length=255, null=True, blank=True )
 
 class Megrendeles1(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    #user = models.ForeignKey(User, on_delete=models.CASCADE)
     phone_number = models.CharField(max_length=255, null=True, blank=True)
     lakcim=models.CharField(max_length=255, null=True, blank=True )
     keresztnev=models.CharField(max_length=255, null=True, blank=True )
     vezeteknev=models.CharField(max_length=255, null=True, blank=True )
+    email=models.CharField(max_length=255, null=True, blank=True )
 
  

@@ -41,70 +41,71 @@
                     <button type="button" class="btn-buy">Fizetés</button></a>
                 <i class='bx bx-x' id="zaro"></i>
             </div>
+        </div>
     </header>
     <br>
 
 
     <div class="div1" id="Fooldal">
+
+        <div>
+            <div class="regisztraciosResz">
+
+                <form action="{% url 'home' %}" method="post">
+                    <table>
+                        <tr>
+                            <td>
+                                <span class="fel">Felhasználónév
+                            <td>
+                                <input type="text" name="username" id="">
+                            </td>
+                            </span>
+                            </td>
+                            <td>
+                                <a rel="stylesheet" href="Regisztracio/" target=”_blank” id="regisztracio">Regisztráció </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="fel">Jelszó
+                            </td>
+                            <td>
+                                <input type="text" name="password">
+                            </td>
+                            </span>
+
+                        </tr>
+                        
+                    </table>
+
+
+                    <br>
+
+                    <span id="bntbelep"><Button>Belépés</Button></span>
+                    {% if user.id != None %}
+                    <a href="{% url 'kijelentkezes' %}">{{ user }}</a>
+                    {% endif %}
+
+                    {% csrf_token %}
+                    {{error_message}}
+
+
+
+                </form>
+
+            </div>
+            <div class="balra">
+                <p>Éhes vagy?</p>
+                <h1>Ne várj</h1>
+                <p>Rendelj tőlünk</p>
+                <p>Telefonszámunk: 0670/1234567</p>
+                <p>NY: H-Sz 9:00- 22:00</p>
+            </div>
+        </div>
+
         <div class="jobbra" id="étel">
             <img id="plateImage" class="plate-image" src="{% static 'food1.png' %}" alt="Étel képe">
         </div>
-        <div class="regisztraciosResz">
-
-            <form action="{% url 'home' %}" method="post">
-                <table>
-                    <tr>
-                        <td>
-                            <span class="fel">Felhasználónév
-                        <td>
-                            <input type="text" name="username" id="">
-                        </td>
-                        </span>
-                        </td>
-                        <td>
-                            <a rel="stylesheet" href="Regisztracio/" target=”_blank” id="regisztracio">Regisztráció </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <span class="fel">Jelszó
-                        </td>
-                        <td>
-                            <input type="text" name="password">
-                        </td>
-                        </span>
-
-                    </tr>
-                    
-                </table>
-
-
-                <br>
-
-                <span id="bntbelep"><Button>Belépés</Button></span>
-                {% if user.id != None %}
-                <a href="{% url 'kijelentkezes' %}">{{ user }}</a>
-                {% endif %}
-
-                {% csrf_token %}
-                {{error_message}}
-
-
-
-            </form>
-
-        </div>
-
-
-        <div class="balra">
-            <p>Éhes vagy?</p>
-            <h1>Ne várj</h1>
-            <p>Rendelj tőlünk</p>
-            <p>Telefonszámunk: 0670/1234567</p>
-            <p>NY: H-Sz 9:00- 22:00</p>
-        </div>
-
-
 
     </div>
 

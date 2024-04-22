@@ -177,12 +177,7 @@ width: 20px;
   color: black;
   text-transform: uppercase;
 }
-.regisztraciosResz{
-  position: absolute;
-  left: 10px;
-  top: 80px;
-  
-}
+
 .jobbra {
   text-align: right;
   max-width: 30%; /* A tányér maximális szélessége 100% */
@@ -201,14 +196,13 @@ width: 20px;
 
 .div1 {
   display: flex;
-  flex-direction: row-reverse; /* A tartalom rendezése a sorok mentén, de a sorok irányát megfordítva */
+  flex-direction: row; /* A tartalom rendezése a sorok mentén, de a sorok irányát megfordítva */
   justify-content: space-between; /* Az elemek elrendezése úgy, hogy az első elem a sor elején, az utolsó elem pedig a sor végén legyen */
   align-items: center; /* Az elemek középre igazítása a függőleges tengely mentén */
   margin-top: 100px; /* Példaérték: állítsa be a kívánt felső margót */
   margin-bottom: 100px;
-  
+  padding: 50px;
 }
-
 
 /*étlap kezdete*/
 
@@ -391,6 +385,10 @@ width: 20px;
     
   }
 
+  .div1{
+    flex-direction: column;
+  }
+
     .kosarr {
     width: 100%; /* A kosár szélességét teljes képernyő szélességűre állítjuk */
   }
@@ -413,14 +411,15 @@ width: 20px;
   .balra{
     margin-top: 80px;
   }
+
   .nav{
     margin-bottom: 40px;
     width: auto;
   }
+  
   .regisztraciosResz{
     margin-top: 60px;
     margin-bottom: 100px;
-    
   }
   #regisztracio{
     margin-right: 100px;
